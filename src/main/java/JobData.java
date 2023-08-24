@@ -73,9 +73,9 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
+            String aValue = row.get(column).toLowerCase();
 
-            if (aValue.contains(value)) {
+            if (aValue.contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -99,8 +99,8 @@ public class JobData {
         for (HashMap<String, String> row : allJobs) {
             //it's working, but containsValue() is too specific; I need to be able to search WITHIN the value
             // call all the values, and then use toString() and then search the String;
-            String listOfAllValues = row.values().toString();
-            if (listOfAllValues.contains(value)) {
+            String listOfAllValues = row.values().toString().toLowerCase();
+            if (listOfAllValues.contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
