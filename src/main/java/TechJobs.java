@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +11,7 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -112,14 +113,38 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+//        for (HashMap<String, String> jobPosting : someJobs) {
+            if (someJobs.size() <= 0) {
+                System.out.println("No Results");
+            } else {
+                HashMap<String, String> specificJobPost = new HashMap<>();
+                for (int i = 0; i < someJobs.size(); i++) {
+                    specificJobPost = someJobs.get(i);
+                    System.out.println("*****");
+                    for (Map.Entry<String, String> jobPostData : specificJobPost.entrySet()) {
+                        System.out.println(jobPostData.getKey() + ": " + jobPostData.getValue());
+                    }
+                        System.out.println("*****\n");
+                }
+               }
+            }
+        }
 
-        System.out.println("printJobs is not implemented yet");
-    }
-}
+//!!!!!!!!MOLLY HEY LOOK AT THE FOR LOOP SECTIO "THE next loop on display prints out each student’s name and grade:
+//MOLLY YOU NEED TO FIGURE OUT MAYBE TO STORE ALL THE INFO INTO A VARIABLE AND THEN CALL THE SOUT WITH THE ASTERIXES
+//                System.out.println("*****" + "\nposition type: " + $ + "\n name: " + $ + "\nemployer: " + $ + "\nlocation: " + $ + "\ncore competency: " + $ + "\n*****\n\n");
+//                    System.out.println(jobPosting[i].getKey() + ": " + jobPosting[i].getValue());
+//                    for (Map.Entry<String, String> jobPostingData : jobPosting.entrySet()) {
+//                    System.out.println(jobPostingData.getKey() + ": " + jobPostingData.getValue());
+//                        System.out.println("*****\n");
+//                        for (int i = 0; i < )
+
+//                    }
+//        System.out.println("printJobs is not implemented yet");

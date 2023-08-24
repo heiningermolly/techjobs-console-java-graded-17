@@ -94,9 +94,22 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        // TODO - implement this method
-        return null;
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+            //it's working, but containsValue() is too specific; I need to be able to search WITHIN the value
+            // call all the values, and then use toString() and then search the String;
+            String listOfAllValues = row.values().toString();
+            if (listOfAllValues.contains(value)) {
+                jobs.add(row);
+            }
+        }
+            return jobs;
+
     }
+        // TODO - implement this method
+//        return null;
+
 
     /**
      * Read in data from a CSV file and store it in a list
